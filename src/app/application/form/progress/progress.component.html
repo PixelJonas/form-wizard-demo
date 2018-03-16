@@ -1,3 +1,5 @@
-<p>
-  progress works!
-</p>
+<mat-horizontal-stepper>
+  <mat-step *ngFor="let step of formState$|async">
+    <ng-template matStepLabel>{{step.label}}</ng-template>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,6 +1,6 @@
-import { Action } from '@ngrx/store';
-import { createFormGroupState, formGroupReducer, FormGroupState } from 'ngrx-forms';
-import { General, ItGuy, PersonalInformation, Pilot, Vita } from '../model';
+import {Action} from '@ngrx/store';
+import {createFormGroupState, formGroupReducer, FormGroupState} from 'ngrx-forms';
+import {General, ItGuy, PersonalInformation, Pilot, Vita} from '../model';
 
 const GENERAL_ID = 'application_general';
 const IT_GUY_ID = 'application_it_guy';
@@ -17,7 +17,13 @@ const initialFormStatePerson = createFormGroupState<PersonalInformation>(PERSON_
 const initialFormStatePilot = createFormGroupState<Pilot>(PILOT_ID, {});
 const initialFormStateVita = createFormGroupState<Vita>(VITA_ID, {});
 
+//feature selector
 export interface ApplicationFormState {
+  steps: [{
+    key: string;
+    label: string;
+    errors?: any;
+  }],
   generalForm: FormGroupState<General>;
   itGuyForm: FormGroupState<ItGuy>;
   personForm: FormGroupState<PersonalInformation>;
@@ -26,6 +32,10 @@ export interface ApplicationFormState {
 }
 
 const initialState: ApplicationFormState = {
+  steps: [{key: 'generalForm', label: 'Allgemein'},
+    {key: 'personal', label: 'Persönliches'},
+    {key: 'personal', label: 'Persönliches'},
+  ],
   generalForm: initialFormStateGeneral,
   itGuyForm: initialFormStateItGuy,
   personForm: initialFormStatePerson,
