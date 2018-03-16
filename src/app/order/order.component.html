@@ -1,9 +1,28 @@
 <ng-container *ngIf="formState$ | async; let formState; else loading">
-  <form novalidate [ngrxFormState]="formState">
-    <input type="text"
-           [ngrxFormControlState]="formState.controls.referenceNumber">
-  </form>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Order Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [ngrxFormState]="formState"
+            (submit)="submit()">
+        <div>
+          <mat-form-field>
+            <input matInput
+                   placeholder="Reference Number"
+                   [ngrxFormControlState]="formState.controls.referenceNumber">
+            <mat-error *ngIf="formState.errors._referenceNumber?.required">
+              A reference number is required
+            </mat-error>
+          </mat-form-field>
+          <pre>{{ submittedValue | json }}</pre>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
 </ng-container>
 <ng-template #loading>
   loading...
 </ng-template>
+

@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { OrderModule } from './order/order.module';
+import { MaterialModule } from './material.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { OrderModule } from './order/order.module';
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
+    MaterialModule,
     SharedModule,
     OrderModule,
   ],

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getOrderForm } from './order-store/selector';
+import { cast } from 'ngrx-forms';
 
 @Component({
   selector: 'wizz-order',
