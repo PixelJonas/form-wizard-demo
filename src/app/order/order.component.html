@@ -1,0 +1,9 @@
+<ng-container *ngIf="formState$ | async; let formState; else loading">
+  <form novalidate [ngrxFormState]="formState">
+    <input type="text"
+           [ngrxFormControlState]="formState.controls.referenceNumber">
+  </form>
+</ng-container>
+<ng-template #loading>
+  loading...
+</ng-template>
