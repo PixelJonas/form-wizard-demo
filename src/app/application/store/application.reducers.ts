@@ -17,7 +17,7 @@ const initialFormStatePerson = createFormGroupState<PersonalInformation>(PERSON_
 const initialFormStatePilot = createFormGroupState<Pilot>(PILOT_ID, {});
 const initialFormStateVita = createFormGroupState<Vita>(VITA_ID, {});
 
-export interface OrderFormState {
+export interface ApplicationFormState {
   generalForm: FormGroupState<General>;
   itGuyForm: FormGroupState<ItGuy>;
   personForm: FormGroupState<PersonalInformation>;
@@ -25,7 +25,7 @@ export interface OrderFormState {
   vitaForm: FormGroupState<Vita>;
 }
 
-const initialState: OrderFormState = {
+const initialState: ApplicationFormState = {
   generalForm: initialFormStateGeneral,
   itGuyForm: initialFormStateItGuy,
   personForm: initialFormStatePerson,
@@ -33,7 +33,7 @@ const initialState: OrderFormState = {
   vitaForm: initialFormStateVita,
 };
 
-export function applicationFormReducer(state = initialState, action: Action): OrderFormState {
+export function applicationFormReducer(state = initialState, action: Action): ApplicationFormState {
   const generalForm = formGroupReducer(state.generalForm, action);
   const itGuyForm = formGroupReducer(state.itGuyForm, action);
   const personForm = formGroupReducer(state.personForm, action);
