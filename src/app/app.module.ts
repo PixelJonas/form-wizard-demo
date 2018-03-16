@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { OrderModule } from './order/order.module';
 import { MaterialModule } from './material.module';
+import { ApplicationModule } from './application/application.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { MaterialModule } from './material.module';
     MaterialModule,
     SharedModule,
     OrderModule,
+    ApplicationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
