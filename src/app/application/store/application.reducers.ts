@@ -1,7 +1,6 @@
 import { Action } from '@ngrx/store';
-import { createFormGroupReducerWithUpdate, createFormGroupState, formGroupReducer, FormGroupState, validate } from 'ngrx-forms';
-import { General, ItGuy, PersonalInformation, Pilot, Vita } from '../model';
-import { required } from 'ngrx-forms/validation';
+import { createFormGroupReducerWithUpdate,createFormGroupState, formGroupReducer, FormGroupState , validate} from 'ngrx-forms';
+import { General, ItGuy, PersonalInformation, Pilot, Vita } from '../model';import { required } from 'ngrx-forms/validation';
 
 const GENERAL_ID = 'application_general';
 const IT_GUY_ID = 'application_it_guy';
