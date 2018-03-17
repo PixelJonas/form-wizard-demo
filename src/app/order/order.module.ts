@@ -9,6 +9,7 @@ import { NgrxFormsModule } from 'ngrx-forms';
 
 import { orderFormReducer } from './order-store/reducer';
 import { MaterialModule } from '../material.module';
+import { UsersModule } from '../users/users.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { MaterialModule } from '../material.module';
     OrderRoutingModule,
     StoreModule.forFeature('order', orderFormReducer),
     MaterialModule,
+    UsersModule,
   ],
   exports: [
     OrderComponent,

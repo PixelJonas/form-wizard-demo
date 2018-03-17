@@ -15,6 +15,9 @@ import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { applicationFormReducer } from './store/application.reducers';
+import { NgrxFormsModule } from 'ngrx-forms';
+import { EffectsModule } from '@ngrx/effects';
+import { AsyncValidationEffects } from './store/application-general.effects';
 
 @NgModule({
   imports: [
@@ -22,7 +25,9 @@ import { applicationFormReducer } from './store/application.reducers';
     ApplicationRoutingModule,
     MaterialModule,
     SharedModule,
+    NgrxFormsModule,
     StoreModule.forFeature('application', applicationFormReducer),
+    EffectsModule.forFeature([AsyncValidationEffects]),
   ],
   declarations: [
     ApplicationComponent,

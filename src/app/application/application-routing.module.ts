@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ApplicationComponent } from './application.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', component: ApplicationComponent},
+  {path: 'application', pathMatch: 'full', component: ApplicationComponent},
 ];
 
 @NgModule({

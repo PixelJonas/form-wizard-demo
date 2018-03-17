@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getOrderForm } from './order-store/selector';
 import { cast } from 'ngrx-forms';
+import { UserService } from '../users/user.service';
 
 @Component({
   selector: 'wizz-order',
@@ -11,7 +12,7 @@ import { cast } from 'ngrx-forms';
 export class OrderComponent {
   formState$;
 
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<any>, private userService: UserService) {
     this.formState$ = store.select(getOrderForm);
   }
 

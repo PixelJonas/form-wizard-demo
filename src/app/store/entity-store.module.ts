@@ -2,15 +2,11 @@ import { NgModule } from '@angular/core';
 import { EntityMetadataMap, NgrxDataModule } from 'ngrx-data';
 
 export const entityMetadata: EntityMetadataMap = {
-  Aircraft: {},
-  Part: {},
-  Order: {},
+  User: {},
 };
 
 export const pluralNames = {
-  Aircraft: 'Aircrafts',
-  Part: 'Parts',
-  Order: 'Orders',
+  User: 'Users',
 };
 
 @NgModule({

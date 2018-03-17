@@ -1,3 +1,28 @@
-<p>
-  application works!
-</p>
+<ng-container *ngIf="generalForm$ | async; let formState; else loading">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Wizz It!</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [ngrxFormState]="formState" (submit)="submit()">
+        <div>
+          <mat-form-field>
+            <input matInput
+                   placeholder="Username"
+                   [ngrxFormControlState]="formState.controls.username"
+            >
+            <span *ngIf="formState.errors._username?.$exists">
+              This username is already taken!
+            </span>
+          </mat-form-field>
+          <pre>{{ generalForm$ | async | json }}</pre>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</ng-container>
+<ng-template #loading>
+  loading...
+</ng-template>
+

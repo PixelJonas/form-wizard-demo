@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
-import { createFormGroupState, formGroupReducer, FormGroupState } from 'ngrx-forms';
+import { createFormGroupReducerWithUpdate, createFormGroupState, formGroupReducer, FormGroupState, validate } from 'ngrx-forms';
 import { General, ItGuy, PersonalInformation, Pilot, Vita } from '../model';
+import { required } from 'ngrx-forms/validation';
 
 const GENERAL_ID = 'application_general';
 const IT_GUY_ID = 'application_it_guy';
@@ -35,13 +36,14 @@ const initialState: ApplicationFormState = {
 
 export function applicationFormReducer(state = initialState, action: Action): ApplicationFormState {
   const generalForm = formGroupReducer(state.generalForm, action);
+  const generalFormUpdate = createFormGroupReducerWithUpdate<General>({username: validate(required)});
   const itGuyForm = formGroupReducer(state.itGuyForm, action);
   const personForm = formGroupReducer(state.personForm, action);
   const pilotForm = formGroupReducer(state.pilotForm, action);
   const vitaForm = formGroupReducer(state.vitaForm, action);
 
   if (generalForm !== state.generalForm) {
-    state = {...state, generalForm};
+    state = {...state, ...{generalForm: generalFormUpdate(state.generalForm, action)}};
   }
   if (itGuyForm !== state.itGuyForm) {
     state = {...state, itGuyForm};
